@@ -16,9 +16,9 @@ export KW=$1
 export PREFIX=$2
 
 loc=ja_JP
-loc=zh_CN
+# loc=zh_CN
 
-cat ./$loc/wordcount.json | jq ".${KW}" | \
+cat ./ArknightsStoryJson/$loc/wordcount.json | jq ".${KW}" | \
     grep "activities" | \
     sed -re "s/^ *\"activities\/[^\/]*\/level_[a-z0-9]*_([^\"]*)\": ([0-9]*).*/${PREFIX}-\1 \2/g" | \
     sed -re "s/st/ST-/g" | sed -re "s/_beg/前/g" | sed -re "s/_end/後/g"
