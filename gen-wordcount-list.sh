@@ -30,7 +30,7 @@ if cat ./ArknightsStoryJson/$loc/wordcount.json | jq ".${KW}" | grep null > /dev
 fi
 
 if [[ $IS_JP = "y" ]]; then
-    list_wordcount $loc $KW $PREFIX | awk "BEGIN{c=0} {print \$1, \$2;c+=\$2} END{print \"Total:\",c}"
+    list_wordcount $loc $KW $PREFIX
     exit 0
 fi
 
@@ -40,4 +40,4 @@ echo "** JP data not available. Estimate from CN data **"
 echo ""
 ratio=$(jp_cn_ratio)
 echo "JP_CN_ratio $ratio"
-list_wordcount $loc $KW $PREFIX | awk "BEGIN{c=0} {x=int(\$2 * $ratio/100)*100; print \$1, x;c+=x} END{print \"Total:\",c}"
+list_wordcount $loc $KW $PREFIX
