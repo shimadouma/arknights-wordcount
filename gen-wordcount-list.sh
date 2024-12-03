@@ -40,4 +40,4 @@ echo "** JP data not available. Estimate from CN data **"
 echo ""
 ratio=$(jp_cn_ratio)
 echo "JP_CN_ratio $ratio"
-list_wordcount $loc $KW $PREFIX
+list_wordcount "$loc" "$KW" "$PREFIX" $ratio
